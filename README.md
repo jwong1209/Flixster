@@ -1,26 +1,26 @@
-# Android Project 3 - *Flixster*
+# Android Project 4 - *Flixster*
 
-Submitted by: **Jason Wong**
+Submitted by: **Your Name Here**
 
-**Flixster** is a movie browsing app that allows users to browse movies currently playing in theaters.
+**Flixster** is a movie browsing app that allows users to browse through the current popular movies.
 
-Time spent: **4.5** hours spent in total
+Time spent: **9** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **Make a request to [The Movie Database API's `now_playing`](https://developers.themoviedb.org/3/movies/get-now-playing) endpoint to get a list of current movies**
-- [x] **Parse through JSON data and implement a RecyclerView to display all movies**
-- [x] **Use Glide to load and display movie poster images**
+- [x] **Choose any endpoint on The MovieDB API except `now_playing`**
+  - Chosen Endpoint: `[popular]`
+- [x] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
+- [x] **Use Glide to load and display at least one image per entry**
+- [x] **Click on an entry to view specific details about that entry using Intents**
 
 The following **optional** features are implemented:
 
-- [x] Improve and customize the user interface through styling and coloring
-- [ ] Implement orientation responsivity
-  - App should neatly arrange data in both landscape and portrait mode
-- [ ] Implement Glide to display placeholder graphics during loading
-  - Note: this feature is difficult to capture in a GIF without throttling internet speeds.  Instead, include an additional screencap of your Glide code implementing the feature.  (<10 lines of code)
+- [ ] **Add another API call and RecyclerView that lets the user interact with different data.** 
+- [ ] **Add rounded corners to the images using the Glide transformations**
+- [ ] **Implement a shared element transition when user clicks into the details of a movie**
 
 The following **additional** features are implemented:
 
@@ -41,12 +41,11 @@ GIF created with LICEcap
 
 ## Notes
 
-I had difficulty with parsing the JSON data obtained from the movie database.
-
+Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2025] [Jason Wong]
+    Copyright [2022] [Jason Wong]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
