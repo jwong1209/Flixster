@@ -2,7 +2,7 @@ package com.example.flixster
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.bestsellerlistapp.MovieFragment
+import com.example.flixster.MovieFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

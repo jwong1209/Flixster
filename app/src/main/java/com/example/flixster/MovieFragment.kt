@@ -1,5 +1,6 @@
-package com.example.bestsellerlistapp
+package com.example.flixster
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,6 +21,7 @@ import com.example.flixster.OnListFragmentInteractionListener
 import com.example.flixster.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.io.Serializable
 
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
@@ -41,9 +43,10 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
         val view = inflater.inflate(R.layout.fragment_movie_list, container, false)
         val progressBar = view.findViewById<View>(R.id.progress) as ContentLoadingProgressBar
         val recyclerView = view.findViewById<View>(R.id.list) as RecyclerView
+        //val popRecyclerView = view.findViewById<View>(R.id.)
         val context = view.context
         recyclerView.layoutManager = GridLayoutManager(context, 1)
-        updateAdapter(progressBar, recyclerView)
+        updateNowAdapter(progressBar, recyclerView)
         return view
     }
 
@@ -51,7 +54,7 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
      * Updates the RecyclerView adapter with new data.  This is where the
      * networking magic happens!
      */
-    private fun updateAdapter(progressBar: ContentLoadingProgressBar, recyclerView: RecyclerView) {
+    private fun updateNowAdapter(progressBar: ContentLoadingProgressBar, recyclerView: RecyclerView) {
         progressBar.show()
 
         // Create and set up an AsyncHTTPClient() here
@@ -102,15 +105,21 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
                 }
             }
                 }]
-
-
     }
 
     /*
      * What happens when a particular movie is clicked.
      */
-    override fun onItemClick(item: Movie) {
-        Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
+    override fun onItemClick(item: Movie, position: Int) {
+        //Toast.makeText(context, "test: " + item.title + "position" + position, Toast.LENGTH_LONG).show()
+        val intent = Intent(context, DetailActivity::class.java)
+        //println(item.javaClass.name)
+        intent.putExtra("movieTitle", item.title)
+        intent.putExtra("movieOverview", item.overview)
+        intent.putExtra("movieImage", item.poster_path)
+        intent.putExtra("vote_average", item.vote_average)
+        intent.putExtra("releaseDate", item.releaseDate)
+        context?.startActivity(intent)
     }
 
 }

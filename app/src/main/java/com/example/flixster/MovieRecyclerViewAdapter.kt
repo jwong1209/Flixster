@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import java.io.Serializable
 
 /**
  * [RecyclerView.Adapter] that can display a [Movie] and makes a call to the
@@ -31,12 +33,12 @@ class MovieRecyclerViewAdapter(
     inner class MovieViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         var mItem: Movie? = null
         val mMovieTitle: TextView = mView.findViewById<View>(R.id.movie_title) as TextView
-        val mMovieOverView: TextView = mView.findViewById<View>(R.id.movie_overview) as TextView
+        //val mMovieOverView: TextView = mView.findViewById<View>(R.id.movie_overview) as TextView
         val mMovieImage: ImageView = mView.findViewById<View>(R.id.movie_image) as ImageView
 
 
         override fun toString(): String {
-            return mMovieTitle.toString() + " '" + mMovieOverView.text + "'"
+            return mMovieTitle.toString() //+ " '" + mMovieOverView.text + "'"
         }
     }
 
@@ -48,7 +50,7 @@ class MovieRecyclerViewAdapter(
 
         holder.mItem = movie
         holder.mMovieTitle.text = movie.title
-        holder.mMovieOverView.text = movie.overview
+        //holder.mMovieOverView.text = movie.overview
 
         Glide.with(holder.mView)
             .load("https://image.tmdb.org/t/p/w500/" + movie.poster_path)
@@ -57,7 +59,7 @@ class MovieRecyclerViewAdapter(
 
         holder.mView.setOnClickListener {
             holder.mItem?.let { movie ->
-                mListener?.onItemClick(movie)
+                mListener?.onItemClick(movie, position)
             }
         }
     }
