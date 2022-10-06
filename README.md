@@ -1,6 +1,6 @@
 # Android Project 4 - *Flixster*
 
-Submitted by: **Your Name Here**
+Submitted by: **Jason Wong**
 
 **Flixster** is a movie browsing app that allows users to browse through the current popular movies.
 
